@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Songhan Hu</title>
-  <meta name="description" content="Songhan Hu — Personal site." />
+  <title>胡松涵 | Songhan Hu</title>
+  <meta name="description" content="胡颂涵 — 个人主页。" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%98%8E</text></svg>" />
   <style>
-    /* spacing scale: 8px base → 16 24 32 40 48 56 64 80 96 */
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
       font-size: 18px;
       line-height: 1.7;
       color: #1c1c1c;
@@ -37,10 +36,7 @@
       padding: 0 24px;
     }
 
-    /* ----- Header ----- */
-    .header {
-      padding: 56px 0 48px;
-    }
+    .header { padding: 56px 0 48px; }
 
     .avatar {
       width: 160px;
@@ -93,18 +89,11 @@
       border-bottom-color: #1565c0;
     }
 
-    .lang-link {
-      font-size: 0.875rem;
-      margin-bottom: 8px;
-    }
-
+    .lang-link { font-size: 0.875rem; margin-bottom: 8px; }
     .lang-link a { color: #777; }
     .lang-link a:hover { color: #1c1c1c; }
 
-    /* ----- Sections ----- */
-    .section {
-      padding-top: 40px;
-    }
+    .section { padding-top: 40px; }
 
     .section-title {
       font-size: 0.8125rem;
@@ -121,13 +110,10 @@
     }
 
     .section p:last-child { margin-bottom: 0; }
-
     .section strong { color: #1c1c1c; font-weight: 600; }
 
     .intro-para.section { padding-top: 32px; }
-
     .intro-para .section-title { display: none; }
-
     .sections-grid .section + .section { padding-top: 40px; }
 
     footer {
@@ -138,73 +124,43 @@
       text-align: center;
     }
 
-    /* ========== Desktop: balanced two-column ========== */
     @media (min-width: 768px) {
-      .wrap {
-        max-width: 1000px;
-        padding: 0 40px;
-      }
-
-      .header {
-        padding: 80px 0 64px;
-      }
-
+      .wrap { max-width: 1000px; padding: 0 40px; }
+      .header { padding: 80px 0 64px; }
       .hero-block {
         display: flex;
         gap: 64px;
         align-items: flex-start;
       }
-
       .hero-left {
         flex-shrink: 0;
         width: 240px;
         padding-top: 8px;
       }
-
       .hero-left .avatar {
         width: 220px;
         height: 220px;
         margin: 0 auto;
       }
-
       .hero-right {
         flex: 1;
         min-width: 0;
         max-width: 56ch;
       }
-
-      .hero-right .name {
-        font-size: 2.75rem;
-        letter-spacing: -0.04em;
-      }
-
+      .hero-right .name { font-size: 2.75rem; letter-spacing: -0.04em; }
       .hero-right .sub { margin-top: 8px; }
       .hero-right .sub + .sub { margin-top: 4px; }
-
-      .hero-right .links {
-        margin-top: 28px;
-      }
-
+      .hero-right .links { margin-top: 28px; }
       .intro-para {
         margin-top: 32px;
         padding-top: 28px;
         border-top: 1px solid #e8e8e8;
       }
-
-      .sections-grid {
-        padding-top: 48px;
-      }
-
-      .sections-grid .section + .section {
-        padding-top: 48px;
-      }
-
-      .sections-grid .section-title {
-        margin-bottom: 14px;
-      }
+      .sections-grid { padding-top: 48px; }
+      .sections-grid .section + .section { padding-top: 48px; }
+      .sections-grid .section-title { margin-bottom: 14px; }
     }
 
-    /* ========== Mobile ========== */
     @media (max-width: 767px) {
       body { font-size: 17px; }
       .header { padding: 48px 0 40px; }
@@ -213,14 +169,8 @@
         align-items: center;
         text-align: center;
       }
-      .hero-left {
-        width: auto;
-        padding-top: 0;
-      }
-      .hero-left .avatar {
-        width: 140px;
-        height: 140px;
-      }
+      .hero-left { width: auto; padding-top: 0; }
+      .hero-left .avatar { width: 140px; height: 140px; }
       .name { font-size: 1.875rem; }
       .links { justify-content: center; }
       .intro-para {
@@ -237,41 +187,38 @@
       <div class="wrap">
         <div class="hero-block">
           <div class="hero-left">
-            <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="Songhan Hu" />
+            <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="胡颂涵" />
           </div>
           <div class="hero-right">
-            <p class="lang-link"><a href="zh.html">中文</a></p>
-            <h1 class="name">Songhan Hu</h1>
-            <p class="sub">Harvard M.S. Data Science · Graduating May 2026</p>
-            <p class="sub">Teaching Fellow at Harvard: Data Science 1 and 2</p>
+            <p class="lang-link"><a href="index.html">English</a></p>
+            <h1 class="name">胡颂涵</h1>
+            <p class="sub">哈佛大学 数据科学硕士 · 2026年5月毕业</p>
+            <p class="sub">哈佛助教：Data Science 1 与 2</p>
             <div class="links">
-              <a class="primary" href="Songhan_Resume_0112.pdf" target="_blank">Resume</a>
+              <a class="primary" href="Songhan_Resume_0112.pdf" target="_blank">简历</a>
               <a href="https://www.linkedin.com/in/songhanhu/" target="_blank">LinkedIn</a>
               <a href="https://github.com/songhanhu" target="_blank">GitHub</a>
               <a href="mailto:husonghan666@gmail.com">Email</a>
             </div>
             <div class="intro-para section">
               <p>
-                I'm finishing my M.S. in Data Science at Harvard (May '26), cross-registered at MIT, after graduating first in my class at UCI in Mathematics and Quantitative Economics. I build ML systems that have to work in the real world — where the data is messy, the deadlines are real, and nobody cares how elegant your loss function is if the thing doesn't ship.
+                我目前在哈佛大学读数据科学硕士（预计 2026 年 5 月毕业），同时在 MIT 跨校选课。本科就读于 UC Irvine，主修数学与数量经济，专业排名第一。
+              </p>
+              <p>
+                我主要做的是能在真实环境中运行的机器学习系统。现实数据往往不完美、时间也总是有限，因此我更关注模型是否真正能够落地并持续稳定运行，而不仅仅是在实验环境中表现良好。
               </p>
             </div>
             <div class="sections-grid">
               <section class="section">
-                <h2 class="section-title">Research & work</h2>
+                <h2 class="section-title">研究与工作</h2>
                 <p>
-                  My work sits at the intersection of <strong>quantitative finance</strong> and <strong>applied machine learning</strong>. I'm drawn to problems where you need statistical rigor to survive contact with chaotic, high-dimensional reality — rates curve construction, time-series forecasting, multimodal pricing for things that don't have a ticker symbol.
-                </p>
-                <p>
-                  Lately I've been deep into <strong>agentic AI systems</strong>: building autonomous agents that can reason, plan, and actually do things. I spend a lot of time wiring up agents that automate tasks I'm too lazy to do myself. I care about the full stack of a model's life — the idea, the math, the engineering, the deployment, and whether it still works on a Tuesday three months from now. If it only lives in a notebook, it doesn't count.
+                  我的研究主要在<strong>量化金融</strong>与<strong>应用机器学习</strong>的交叉领域，比如利率曲线建模、时间序列预测，以及缺乏标准标签的数据定价问题。最近也在探索智能体系统（Agent Systems），尝试构建能够自主推理、规划并执行任务的 AI agent。
                 </p>
               </section>
               <section class="section">
-                <h2 class="section-title">Outside of work</h2>
+                <h2 class="section-title">工作之外</h2>
                 <p>
-                  I take my hobbies the same way I take my models — obsess over the process, track the metrics, blame variance when things go wrong.
-                </p>
-                <p>
-                  <strong>Golf</strong> is the current grind (shooting in the low 90s). <strong>Badminton</strong> is where the competitive energy goes; <strong>skiing</strong> is where the send-it energy goes. <strong>Poker</strong> is the quiet obsession — I'm a disciplined, +EV player. The game is good training for thinking under uncertainty, which is also what I do for a living.
+                  工作之外，我的兴趣也大多和「在不确定中做决策」有关。最近主要在打<strong>高尔夫</strong>（成绩九十多杆），平时打<strong>羽毛球</strong>、冬天<strong>滑雪</strong>。<strong>扑克</strong>是一个长期的爱好，本质上也是在不确定环境中寻找长期正期望的过程。
                 </p>
               </section>
             </div>
@@ -282,7 +229,7 @@
   </main>
 
   <footer>
-    <div class="wrap">© 2026 Songhan Hu</div>
+    <div class="wrap">© 2026 胡松涵</div>
   </footer>
 </body>
 </html>
