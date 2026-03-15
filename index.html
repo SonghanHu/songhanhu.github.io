@@ -4,258 +4,178 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Songhan Hu</title>
-  <meta name="description" content="Songhan Hu — quant, builder, +EV thinker." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Songhan Hu — Personal site." />
   <style>
-    :root {
-      --bg: #0a0a0a;
-      --card: #141414;
-      --border: #222;
-      --text: #e8e8e8;
-      --muted: #888;
-      --green: #4ade80;
-      --mono: 'JetBrains Mono', monospace;
-      --sans: 'Space Grotesk', system-ui, sans-serif;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      color: #1a1a1a;
+      background: #fafafa;
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
 
-    .container {
-      max-width: 680px;
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: 620px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* --- HERO --- */
-    .hero {
-      padding: 100px 0 48px;
+    /* Header */
+    .header {
+      padding: 64px 0 40px;
     }
 
-    .hero-top {
+    .header-inner {
       display: flex;
       align-items: center;
-      gap: 28px;
-      margin-bottom: 36px;
+      gap: 24px;
     }
 
     .avatar {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--border);
       flex-shrink: 0;
     }
 
-    .hero-intro h1 {
-      font-size: 2rem;
+    .name {
+      font-size: 1.75rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
+      color: #1a1a1a;
+      letter-spacing: -0.02em;
     }
 
-    .hero-intro h1 .wave {
-      display: inline-block;
-      animation: wave 2.5s infinite;
-      transform-origin: 70% 70%;
-    }
-
-    @keyframes wave {
-      0%, 60%, 100% { transform: rotate(0deg); }
-      10%, 30% { transform: rotate(14deg); }
-      20% { transform: rotate(-8deg); }
-      40% { transform: rotate(-4deg); }
-      50% { transform: rotate(10deg); }
-    }
-
-    .hero-tagline {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--green);
-      margin-top: 6px;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 9px 16px;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      background: var(--card);
-      transition: border-color 0.15s;
-    }
-
-    .btn:hover { border-color: #444; }
-    .btn.primary { background: var(--green); color: #000; border-color: var(--green); }
-    .btn.primary:hover { opacity: 0.85; }
-
-    /* --- SECTIONS --- */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 48px 0;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--green);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 20px;
-    }
-
-    .section-label::before { content: '# '; opacity: 0.4; }
-
-    .prose {
-      color: var(--muted);
-      font-size: 1.02rem;
-      line-height: 1.8;
-    }
-
-    .prose strong { color: var(--text); font-weight: 600; }
-
-    .prose p + p { margin-top: 16px; }
-
-    /* --- FOOTER --- */
-    footer {
-      margin-top: 64px;
-      padding: 32px 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.78rem;
-      border-top: 1px solid var(--border);
-    }
-
-    footer span {
-      font-family: var(--mono);
-      display: block;
+    .sub {
+      font-size: 0.95rem;
+      color: #555;
       margin-top: 4px;
-      opacity: 0.4;
     }
 
-    /* --- RESPONSIVE --- */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .links a {
+      color: #1a1a1a;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .links a:hover {
+      border-bottom-color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .links a.primary {
+      color: #0066cc;
+      border-bottom-color: #0066cc;
+    }
+
+    /* Sections */
+    .section {
+      padding: 40px 0 0;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .section p {
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section strong { color: #1a1a1a; font-weight: 600; }
+
+    footer {
+      margin-top: 56px;
+      padding: 24px 0 48px;
+      font-size: 0.875rem;
+      color: #666;
+    }
+
     @media (max-width: 540px) {
-      .hero { padding-top: 60px; }
-      .hero-top { flex-direction: column; text-align: center; }
-      .hero-links { justify-content: center; }
-      .hero-intro h1 { font-size: 1.6rem; }
+      body { font-size: 17px; }
+      .header-inner { flex-direction: column; text-align: center; }
+      .name { font-size: 1.5rem; }
+      .links { justify-content: center; }
     }
   </style>
 </head>
 <body>
   <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-top">
+    <header class="header">
+      <div class="wrap">
+        <div class="header-inner">
           <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="Songhan Hu" />
-          <div class="hero-intro">
-            <h1>Hey, I'm Songhan <span class="wave">👋</span></h1>
-            <div class="hero-tagline">quant · builder · +EV thinker</div>
+          <div>
+            <h1 class="name">Songhan Hu</h1>
+            <p class="sub">Harvard M.S. Data Science · Graduating May 2026</p>
           </div>
         </div>
-
-        <div class="hero-links">
-          <a class="btn primary" href="Songhan_Resume_0112.pdf" target="_blank">Resume ↗</a>
-          <a class="btn" href="https://www.linkedin.com/in/songhanhu/" target="_blank">LinkedIn</a>
-          <a class="btn" href="https://github.com/songhanhu" target="_blank">GitHub</a>
-          <a class="btn" href="mailto:husonghan666@gmail.com">Email</a>
+        <div class="links">
+          <a class="primary" href="Songhan_Resume_0112.pdf" target="_blank">Resume</a>
+          <a href="https://www.linkedin.com/in/songhanhu/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/songhanhu" target="_blank">GitHub</a>
+          <a href="mailto:husonghan666@gmail.com">Email</a>
         </div>
 
-        <div class="prose">
+        <div class="section" style="padding-top: 36px;">
           <p>
-            I'm finishing my <strong>M.S. in Data Science at Harvard</strong> (May '26),
-            cross-registered at MIT, after graduating first in my class at UCI in
-            Mathematics and Quantitative Economics.
-            I build ML systems that have to work in the real world —
-            where the data is messy, the deadlines are real,
-            and nobody cares how elegant your loss function is if the thing doesn't ship.
-          </p>
-        </div>
-
-        <hr class="divider" />
-
-        <div class="section-label">What I Think About</div>
-        <div class="prose">
-          <p>
-            My research sits at the intersection of <strong>quantitative finance</strong> and
-            <strong>applied machine learning</strong>.
-            I'm drawn to problems where you need statistical rigor to survive contact
-            with chaotic, high-dimensional reality —
-            rates curve construction, time-series forecasting, multimodal pricing
-            for things that don't have a ticker symbol.
-          </p>
-          <p>
-            Lately I've been deep into <strong>agentic AI systems</strong> — building autonomous agents
-            that can reason, plan, and actually do things.
-            I spend a probably-unhealthy amount of time wiring up claw agents
-            that automate tasks I'm too lazy to do myself.
-            The dream is systems that think for you while you sleep.
-            We're not there yet, but we're close enough that it's fun to try.
-          </p>
-          <p>
-            I care about the full stack of a model's life:
-            the idea, the math, the engineering, the deployment, and whether it still works
-            on a Tuesday three months from now. If it only lives in a notebook, it doesn't count.
-          </p>
-        </div>
-
-        <hr class="divider" />
-
-        <div class="section-label">When I'm Not Working</div>
-        <div class="prose">
-          <p>
-            I take my hobbies the way I take my models — obsess over the process,
-            track the metrics, blame variance when things go wrong.
-          </p>
-          <p>
-            <strong>Golf</strong> is the current grind. Shooting in the low 90s,
-            which means I'm exactly good enough to know how bad I am.
-            The feedback loop is addicting though — it's basically gradient descent but outside.
-          </p>
-          <p>
-            <strong>Badminton</strong> is where the competitive energy goes.
-            <strong>Skiing</strong> is where the send-it energy goes.
-            Very different vibes, both essential.
-          </p>
-          <p>
-            <strong>Poker</strong> is the quiet obsession. I'm a solid, disciplined, +EV player —
-            which is a fancy way of saying I fold a lot and occasionally feel very smart about it.
-            The game is honestly the best training ground for thinking under uncertainty,
-            which is also what I do for a living.
+            I'm finishing my M.S. in Data Science at Harvard (May '26), cross-registered at MIT, after graduating first in my class at UCI in Mathematics and Quantitative Economics. I build ML systems that have to work in the real world — where the data is messy, the deadlines are real, and nobody cares how elegant your loss function is if the thing doesn't ship.
           </p>
         </div>
       </div>
-    </section>
+    </header>
+
+    <div class="wrap">
+      <section class="section">
+        <h2 class="section-title">Research & work</h2>
+        <p>
+          My work sits at the intersection of <strong>quantitative finance</strong> and <strong>applied machine learning</strong>. I'm drawn to problems where you need statistical rigor to survive contact with chaotic, high-dimensional reality — rates curve construction, time-series forecasting, multimodal pricing for things that don't have a ticker symbol.
+        </p>
+        <p>
+          Lately I've been deep into <strong>agentic AI systems</strong>: building autonomous agents that can reason, plan, and actually do things. I spend a lot of time wiring up agents that automate tasks I'm too lazy to do myself. I care about the full stack of a model's life — the idea, the math, the engineering, the deployment, and whether it still works on a Tuesday three months from now. If it only lives in a notebook, it doesn't count.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Outside of work</h2>
+        <p>
+          I take my hobbies the same way I take my models — obsess over the process, track the metrics, blame variance when things go wrong.
+        </p>
+        <p>
+          <strong>Golf</strong> is the current grind (shooting in the low 90s). <strong>Badminton</strong> is where the competitive energy goes; <strong>skiing</strong> is where the send-it energy goes. <strong>Poker</strong> is the quiet obsession — I'm a disciplined, +EV player. The game is good training for thinking under uncertainty, which is also what I do for a living.
+        </p>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <div class="container">
-      © 2026 Songhan Hu
-      <span>built with html, css, and mass amounts of caffeine</span>
-    </div>
+    <div class="wrap">© 2026 Songhan Hu</div>
   </footer>
 </body>
 </html>
