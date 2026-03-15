@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Songhan Hu</title>
   <meta name="description" content="Songhan Hu — Personal site." />
+  <link rel="icon" href="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" type="image/jpeg" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -33,12 +34,6 @@
     /* Header */
     .header {
       padding: 64px 0 40px;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      gap: 24px;
     }
 
     .avatar {
@@ -117,34 +112,20 @@
       color: #666;
     }
 
-    /* ========== Desktop: wider, two-column content ========== */
+    /* ========== Desktop: left avatar, right all text ========== */
     @media (min-width: 768px) {
       .wrap {
-        max-width: 920px;
+        max-width: 900px;
         padding: 0 32px;
       }
 
       .header {
-        padding: 80px 0 48px;
+        padding: 72px 0 32px;
       }
 
-      .header-inner {
-        gap: 40px;
-      }
-
-      .avatar {
-        width: 200px;
-        height: 200px;
-      }
-
-      .name { font-size: 2rem; }
-
-      .sub { font-size: 1rem; }
-
-      /* Hero + intro in one row; intro paragraph stays under links */
       .hero-block {
         display: flex;
-        gap: 48px;
+        gap: 56px;
         align-items: flex-start;
       }
 
@@ -152,42 +133,61 @@
         flex-shrink: 0;
       }
 
+      .hero-left .avatar {
+        width: 220px;
+        height: 220px;
+      }
+
       .hero-right {
         flex: 1;
         min-width: 0;
       }
 
-      .intro-para {
-        margin-top: 24px;
-        padding-top: 24px;
-        border-top: 1px solid #e0e0e0;
+      .hero-right .name {
+        font-size: 1.85rem;
+        margin-top: 0;
       }
 
-      /* Two columns for Research & Outside of work */
+      .hero-right .sub {
+        margin-top: 6px;
+      }
+
+      .hero-right .links {
+        margin-top: 24px;
+      }
+
+      .intro-para {
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      /* Single column for sections on the right */
       .sections-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 48px 56px;
-        padding-top: 48px;
+        display: block;
+        padding-top: 40px;
       }
 
       .sections-grid .section {
+        padding-top: 32px;
+      }
+
+      .sections-grid .section:first-child {
         padding-top: 0;
       }
 
       .sections-grid .section-title {
-        margin-bottom: 20px;
+        margin-bottom: 12px;
       }
     }
 
     /* ========== Mobile: single column, stacked ========== */
     @media (max-width: 767px) {
       body { font-size: 17px; }
-      .hero-block { flex-direction: column; }
-      .header-inner { flex-direction: column; text-align: center; }
+      .hero-block { flex-direction: column; align-items: center; text-align: center; }
+      .hero-left .avatar { width: 140px; height: 140px; }
       .name { font-size: 1.5rem; }
       .links { justify-content: center; }
-      .avatar { width: 140px; height: 140px; }
       .intro-para { border-top: none; padding-top: 0; margin-top: 20px; }
     }
   </style>
@@ -198,16 +198,12 @@
       <div class="wrap">
         <div class="hero-block">
           <div class="hero-left">
-            <div class="header-inner">
-              <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="Songhan Hu" />
-              <div>
-                <h1 class="name">Songhan Hu</h1>
-                <p class="sub">Harvard M.S. Data Science · Graduating May 2026</p>
-                <p class="sub">Teaching at Harvard: Data Science 1 and 2</p>
-              </div>
-            </div>
+            <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="Songhan Hu" />
           </div>
           <div class="hero-right">
+            <h1 class="name">Songhan Hu</h1>
+            <p class="sub">Harvard M.S. Data Science · Graduating May 2026</p>
+            <p class="sub">Teaching Fellow at Harvard: Data Science 1 and 2</p>
             <div class="links">
               <a class="primary" href="Songhan_Resume_0112.pdf" target="_blank">Resume</a>
               <a href="https://www.linkedin.com/in/songhanhu/" target="_blank">LinkedIn</a>
@@ -219,34 +215,30 @@
                 I'm finishing my M.S. in Data Science at Harvard (May '26), cross-registered at MIT, after graduating first in my class at UCI in Mathematics and Quantitative Economics. I build ML systems that have to work in the real world — where the data is messy, the deadlines are real, and nobody cares how elegant your loss function is if the thing doesn't ship.
               </p>
             </div>
+            <div class="sections-grid">
+              <section class="section">
+                <h2 class="section-title">Research & work</h2>
+                <p>
+                  My work sits at the intersection of <strong>quantitative finance</strong> and <strong>applied machine learning</strong>. I'm drawn to problems where you need statistical rigor to survive contact with chaotic, high-dimensional reality — rates curve construction, time-series forecasting, multimodal pricing for things that don't have a ticker symbol.
+                </p>
+                <p>
+                  Lately I've been deep into <strong>agentic AI systems</strong>: building autonomous agents that can reason, plan, and actually do things. I spend a lot of time wiring up agents that automate tasks I'm too lazy to do myself. I care about the full stack of a model's life — the idea, the math, the engineering, the deployment, and whether it still works on a Tuesday three months from now. If it only lives in a notebook, it doesn't count.
+                </p>
+              </section>
+              <section class="section">
+                <h2 class="section-title">Outside of work</h2>
+                <p>
+                  I take my hobbies the same way I take my models — obsess over the process, track the metrics, blame variance when things go wrong.
+                </p>
+                <p>
+                  <strong>Golf</strong> is the current grind (shooting in the low 90s). <strong>Badminton</strong> is where the competitive energy goes; <strong>skiing</strong> is where the send-it energy goes. <strong>Poker</strong> is the quiet obsession — I'm a disciplined, +EV player. The game is good training for thinking under uncertainty, which is also what I do for a living.
+                </p>
+              </section>
+            </div>
           </div>
         </div>
       </div>
     </header>
-
-    <div class="wrap">
-      <div class="sections-grid">
-        <section class="section">
-          <h2 class="section-title">Research & work</h2>
-          <p>
-            My work sits at the intersection of <strong>quantitative finance</strong> and <strong>applied machine learning</strong>. I'm drawn to problems where you need statistical rigor to survive contact with chaotic, high-dimensional reality — rates curve construction, time-series forecasting, multimodal pricing for things that don't have a ticker symbol.
-          </p>
-          <p>
-            Lately I've been deep into <strong>agentic AI systems</strong>: building autonomous agents that can reason, plan, and actually do things. I spend a lot of time wiring up agents that automate tasks I'm too lazy to do myself. I care about the full stack of a model's life — the idea, the math, the engineering, the deployment, and whether it still works on a Tuesday three months from now. If it only lives in a notebook, it doesn't count.
-          </p>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Outside of work</h2>
-          <p>
-            I take my hobbies the same way I take my models — obsess over the process, track the metrics, blame variance when things go wrong.
-          </p>
-          <p>
-            <strong>Golf</strong> is the current grind (shooting in the low 90s). <strong>Badminton</strong> is where the competitive energy goes; <strong>skiing</strong> is where the send-it energy goes. <strong>Poker</strong> is the quiet obsession — I'm a disciplined, +EV player. The game is good training for thinking under uncertainty, which is also what I do for a living.
-          </p>
-        </section>
-      </div>
-    </div>
   </main>
 
   <footer>
