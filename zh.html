@@ -7,14 +7,64 @@
   <meta name="description" content="胡松涵 — 个人主页。" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%98%8E</text></svg>" />
   <style>
+    :root {
+      --bg: #f8f8f8;
+      --text: #1c1c1c;
+      --text-muted: #333;
+      --sub: #5a5a5a;
+      --link: #1565c0;
+      --border: #e8e8e8;
+      --border-muted: #ccc;
+      --muted: #777;
+      --section-title: #888;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121212;
+        --text: #e8e8e8;
+        --text-muted: #b0b0b0;
+        --sub: #9a9a9a;
+        --link: #64b5f6;
+        --border: #2a2a2a;
+        --border-muted: #444;
+        --muted: #888;
+        --section-title: #888;
+      }
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #e8e8e8;
+      --text-muted: #b0b0b0;
+      --sub: #9a9a9a;
+      --link: #64b5f6;
+      --border: #2a2a2a;
+      --border-muted: #444;
+      --muted: #888;
+      --section-title: #888;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8f8f8;
+      --text: #1c1c1c;
+      --text-muted: #333;
+      --sub: #5a5a5a;
+      --link: #1565c0;
+      --border: #e8e8e8;
+      --border-muted: #ccc;
+      --muted: #777;
+      --section-title: #888;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
       font-size: 18px;
       line-height: 1.7;
-      color: #1c1c1c;
-      background: #f8f8f8;
+      color: var(--text);
+      background: var(--bg);
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
       display: flex;
@@ -24,7 +74,7 @@
     main { flex: 1; }
 
     a {
-      color: #1565c0;
+      color: var(--link);
       text-decoration: none;
     }
 
@@ -35,6 +85,27 @@
       margin: 0 auto;
       padding: 0 24px;
     }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 100;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: var(--border);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .theme-toggle:hover { background: var(--border-muted); }
 
     .header { padding: 56px 0 48px; }
 
@@ -50,14 +121,14 @@
     .name {
       font-size: 2.25rem;
       font-weight: 700;
-      color: #1c1c1c;
+      color: var(--text);
       letter-spacing: -0.03em;
       line-height: 1.2;
     }
 
     .sub {
       font-size: 0.9375rem;
-      color: #5a5a5a;
+      color: var(--sub);
       margin-top: 6px;
       line-height: 1.45;
     }
@@ -72,45 +143,45 @@
     }
 
     .links a {
-      color: #1c1c1c;
+      color: var(--text);
       font-size: 0.9375rem;
       font-weight: 500;
       padding: 6px 0;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 2px solid var(--border-muted);
     }
 
     .links a:hover {
-      border-bottom-color: #1c1c1c;
+      border-bottom-color: var(--text);
       text-decoration: none;
     }
 
     .links a.primary {
-      color: #1565c0;
-      border-bottom-color: #1565c0;
+      color: var(--link);
+      border-bottom-color: var(--link);
     }
 
     .lang-link { font-size: 0.875rem; margin-bottom: 8px; }
-    .lang-link a { color: #777; }
-    .lang-link a:hover { color: #1c1c1c; }
+    .lang-link a { color: var(--muted); }
+    .lang-link a:hover { color: var(--text); }
 
     .section { padding-top: 40px; }
 
     .section-title {
       font-size: 0.8125rem;
       font-weight: 700;
-      color: #888;
+      color: var(--section-title);
       text-transform: uppercase;
       letter-spacing: 0.08em;
       margin-bottom: 12px;
     }
 
     .section p {
-      color: #333;
+      color: var(--text-muted);
       margin-bottom: 16px;
     }
 
     .section p:last-child { margin-bottom: 0; }
-    .section strong { color: #1c1c1c; font-weight: 600; }
+    .section strong { color: var(--text); font-weight: 600; }
 
     .intro-para.section { padding-top: 32px; }
     .intro-para .section-title { display: none; }
@@ -120,7 +191,7 @@
       margin-top: 64px;
       padding: 32px 0 56px;
       font-size: 0.8125rem;
-      color: #777;
+      color: var(--muted);
       text-align: center;
     }
 
@@ -154,7 +225,7 @@
       .intro-para {
         margin-top: 32px;
         padding-top: 28px;
-        border-top: 1px solid #e8e8e8;
+        border-top: 1px solid var(--border);
       }
       .sections-grid { padding-top: 48px; }
       .sections-grid .section + .section { padding-top: 48px; }
@@ -182,6 +253,29 @@
   </style>
 </head>
 <body>
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="切换深色模式" title="切换深色模式">☀️</button>
+  <script>
+    (function() {
+      var STORAGE_KEY = 'theme';
+      var toggle = document.getElementById('theme-toggle');
+      function setTheme(val) {
+        document.documentElement.removeAttribute('data-theme');
+        if (val === 'light' || val === 'dark') document.documentElement.setAttribute('data-theme', val);
+        try { localStorage.setItem(STORAGE_KEY, val || 'system'); } catch (e) {}
+        toggle.textContent = (val === 'dark' || (!val && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? '🌙' : '☀️';
+      }
+      function cycle() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : (current === 'light' ? '' : 'dark');
+        setTheme(next);
+      }
+      var saved = null;
+      try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+      if (saved === 'dark' || saved === 'light') setTheme(saved);
+      else setTheme('');
+      toggle.addEventListener('click', cycle);
+    })();
+  </script>
   <main>
     <header class="header">
       <div class="wrap">
