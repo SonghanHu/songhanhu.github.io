@@ -42,8 +42,8 @@
     }
 
     .avatar {
-      width: 240px;
-      height: 240px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
@@ -87,7 +87,7 @@
       border-bottom-color: #0066cc;
     }
 
-    /* Sections */
+    /* Sections - mobile: single column */
     .section {
       padding: 40px 0 0;
     }
@@ -117,11 +117,78 @@
       color: #666;
     }
 
-    @media (max-width: 540px) {
+    /* ========== Desktop: wider, two-column content ========== */
+    @media (min-width: 768px) {
+      .wrap {
+        max-width: 920px;
+        padding: 0 32px;
+      }
+
+      .header {
+        padding: 80px 0 48px;
+      }
+
+      .header-inner {
+        gap: 40px;
+      }
+
+      .avatar {
+        width: 200px;
+        height: 200px;
+      }
+
+      .name { font-size: 2rem; }
+
+      .sub { font-size: 1rem; }
+
+      /* Hero + intro in one row; intro paragraph stays under links */
+      .hero-block {
+        display: flex;
+        gap: 48px;
+        align-items: flex-start;
+      }
+
+      .hero-left {
+        flex-shrink: 0;
+      }
+
+      .hero-right {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .intro-para {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #e0e0e0;
+      }
+
+      /* Two columns for Research & Outside of work */
+      .sections-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px 56px;
+        padding-top: 48px;
+      }
+
+      .sections-grid .section {
+        padding-top: 0;
+      }
+
+      .sections-grid .section-title {
+        margin-bottom: 20px;
+      }
+    }
+
+    /* ========== Mobile: single column, stacked ========== */
+    @media (max-width: 767px) {
       body { font-size: 17px; }
+      .hero-block { flex-direction: column; }
       .header-inner { flex-direction: column; text-align: center; }
       .name { font-size: 1.5rem; }
       .links { justify-content: center; }
+      .avatar { width: 140px; height: 140px; }
+      .intro-para { border-top: none; padding-top: 0; margin-top: 20px; }
     }
   </style>
 </head>
@@ -129,49 +196,56 @@
   <main>
     <header class="header">
       <div class="wrap">
-        <div class="header-inner">
-          <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="Songhan Hu" />
-          <div>
-            <h1 class="name">Songhan Hu</h1>
-            <p class="sub">Harvard M.S. Data Science · Graduating May 2026</p>
-            <p class="sub">Teaching at Harvard: Data Science 1 and 2</p>
+        <div class="hero-block">
+          <div class="hero-left">
+            <div class="header-inner">
+              <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="Songhan Hu" />
+              <div>
+                <h1 class="name">Songhan Hu</h1>
+                <p class="sub">Harvard M.S. Data Science · Graduating May 2026</p>
+                <p class="sub">Teaching at Harvard: Data Science 1 and 2</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="links">
-          <a class="primary" href="Songhan_Resume_0112.pdf" target="_blank">Resume</a>
-          <a href="https://www.linkedin.com/in/songhanhu/" target="_blank">LinkedIn</a>
-          <a href="https://github.com/songhanhu" target="_blank">GitHub</a>
-          <a href="mailto:husonghan666@gmail.com">Email</a>
-        </div>
-
-        <div class="section" style="padding-top: 36px;">
-          <p>
-            I'm finishing my M.S. in Data Science at Harvard (May '26), cross-registered at MIT, after graduating first in my class at UCI in Mathematics and Quantitative Economics. I build ML systems that have to work in the real world — where the data is messy, the deadlines are real, and nobody cares how elegant your loss function is if the thing doesn't ship.
-          </p>
+          <div class="hero-right">
+            <div class="links">
+              <a class="primary" href="Songhan_Resume_0112.pdf" target="_blank">Resume</a>
+              <a href="https://www.linkedin.com/in/songhanhu/" target="_blank">LinkedIn</a>
+              <a href="https://github.com/songhanhu" target="_blank">GitHub</a>
+              <a href="mailto:husonghan666@gmail.com">Email</a>
+            </div>
+            <div class="intro-para section">
+              <p>
+                I'm finishing my M.S. in Data Science at Harvard (May '26), cross-registered at MIT, after graduating first in my class at UCI in Mathematics and Quantitative Economics. I build ML systems that have to work in the real world — where the data is messy, the deadlines are real, and nobody cares how elegant your loss function is if the thing doesn't ship.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </header>
 
     <div class="wrap">
-      <section class="section">
-        <h2 class="section-title">Research & work</h2>
-        <p>
-          My work sits at the intersection of <strong>quantitative finance</strong> and <strong>applied machine learning</strong>. I'm drawn to problems where you need statistical rigor to survive contact with chaotic, high-dimensional reality — rates curve construction, time-series forecasting, multimodal pricing for things that don't have a ticker symbol.
-        </p>
-        <p>
-          Lately I've been deep into <strong>agentic AI systems</strong>: building autonomous agents that can reason, plan, and actually do things. I spend a lot of time wiring up agents that automate tasks I'm too lazy to do myself. I care about the full stack of a model's life — the idea, the math, the engineering, the deployment, and whether it still works on a Tuesday three months from now. If it only lives in a notebook, it doesn't count.
-        </p>
-      </section>
+      <div class="sections-grid">
+        <section class="section">
+          <h2 class="section-title">Research & work</h2>
+          <p>
+            My work sits at the intersection of <strong>quantitative finance</strong> and <strong>applied machine learning</strong>. I'm drawn to problems where you need statistical rigor to survive contact with chaotic, high-dimensional reality — rates curve construction, time-series forecasting, multimodal pricing for things that don't have a ticker symbol.
+          </p>
+          <p>
+            Lately I've been deep into <strong>agentic AI systems</strong>: building autonomous agents that can reason, plan, and actually do things. I spend a lot of time wiring up agents that automate tasks I'm too lazy to do myself. I care about the full stack of a model's life — the idea, the math, the engineering, the deployment, and whether it still works on a Tuesday three months from now. If it only lives in a notebook, it doesn't count.
+          </p>
+        </section>
 
-      <section class="section">
-        <h2 class="section-title">Outside of work</h2>
-        <p>
-          I take my hobbies the same way I take my models — obsess over the process, track the metrics, blame variance when things go wrong.
-        </p>
-        <p>
-          <strong>Golf</strong> is the current grind (shooting in the low 90s). <strong>Badminton</strong> is where the competitive energy goes; <strong>skiing</strong> is where the send-it energy goes. <strong>Poker</strong> is the quiet obsession — I'm a disciplined, +EV player. The game is good training for thinking under uncertainty, which is also what I do for a living.
-        </p>
-      </section>
+        <section class="section">
+          <h2 class="section-title">Outside of work</h2>
+          <p>
+            I take my hobbies the same way I take my models — obsess over the process, track the metrics, blame variance when things go wrong.
+          </p>
+          <p>
+            <strong>Golf</strong> is the current grind (shooting in the low 90s). <strong>Badminton</strong> is where the competitive energy goes; <strong>skiing</strong> is where the send-it energy goes. <strong>Poker</strong> is the quiet obsession — I'm a disciplined, +EV player. The game is good training for thinking under uncertainty, which is also what I do for a living.
+          </p>
+        </section>
+      </div>
     </div>
   </main>
 
