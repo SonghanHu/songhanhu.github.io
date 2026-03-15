@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Songhan Hu</title>
+  <meta name="description" content="Songhan Hu — quant, builder, +EV thinker." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card: #141414;
+      --border: #222;
+      --text: #e8e8e8;
+      --muted: #888;
+      --green: #4ade80;
+      --blue: #60a5fa;
+      --amber: #fbbf24;
+      --pink: #f472b6;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Space Grotesk', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- NAV --- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+
+    .logo {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--green);
+    }
+
+    .logo::before { content: '> '; opacity: 0.5; }
+
+    .nav-links { display: flex; gap: 20px; font-size: 0.88rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+
+    /* --- HERO --- */
+    .hero {
+      padding: 80px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .hero-intro h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .hero-intro h1 .wave {
+      display: inline-block;
+      animation: wave 2.5s infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      10%, 30% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+    }
+
+    .hero-tagline {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      color: var(--green);
+      margin-top: 8px;
+    }
+
+    .hero-bio {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 65ch;
+    }
+
+    .hero-bio strong { color: var(--text); font-weight: 600; }
+
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.15s;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .btn:hover { border-color: #444; background: #1a1a1a; }
+    .btn.primary { background: var(--green); color: #000; border-color: var(--green); }
+    .btn.primary:hover { opacity: 0.85; }
+
+    /* --- STATS BAR --- */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 48px 0;
+    }
+
+    .stat {
+      background: var(--card);
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* --- SECTIONS --- */
+    section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+
+    .section-header {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    .section-header::before { content: '## '; opacity: 0.5; }
+
+    /* --- ABOUT / VIBES --- */
+    .vibes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .vibe-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .vibe-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .vibe-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .vibe-card .emoji { font-size: 1.2rem; }
+
+    /* --- EXPERIENCE --- */
+    .timeline { display: flex; flex-direction: column; gap: 24px; }
+
+    .timeline-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .timeline-year {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--green);
+      padding: 4px 10px;
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 6px;
+      background: rgba(74,222,128,0.05);
+      white-space: nowrap;
+    }
+
+    .timeline-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .timeline-card .role { color: var(--blue); font-size: 0.88rem; font-weight: 600; }
+    .timeline-card p { color: var(--muted); font-size: 0.88rem; margin-top: 8px; line-height: 1.6; }
+
+    /* --- PROJECTS --- */
+    .projects-grid { display: flex; flex-direction: column; gap: 16px; }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .project h3 {
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--amber);
+      border: 1px solid rgba(251,191,36,0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(251,191,36,0.05);
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .project .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .project .tech span {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #1a1a1a;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* --- SKILLS --- */
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      transition: border-color 0.15s;
+    }
+
+    .skill:hover { border-color: #444; }
+
+    /* --- CONTACT --- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .contact-card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.15s;
+    }
+
+    .contact-card:hover { border-color: #444; }
+    .contact-card strong { font-size: 0.95rem; }
+    .contact-card .muted { color: var(--muted); font-size: 0.82rem; margin-top: 4px; font-family: var(--mono); }
+
+    /* --- FOOTER --- */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer .footer-note {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      margin-top: 6px;
+      opacity: 0.5;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 640px) {
+      .hero-top { flex-direction: column; text-align: center; }
+      .hero-intro h1 { font-size: 1.8rem; }
+      .hero-links { justify-content: center; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .vibes-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .timeline-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">songhan.hu</a>
+      <div class="nav-links">
+        <a href="#about">about</a>
+        <a href="#work">work</a>
+        <a href="#projects">projects</a>
+        <a href="#contact">contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-top">
+          <img class="avatar" src="dbbfa6dc5bb34e2811e942e87a7ec033.jpg" alt="Songhan Hu" />
+          <div class="hero-intro">
+            <h1>Hey, I'm Songhan <span class="wave">👋</span></h1>
+            <div class="hero-tagline">quant · builder · +EV thinker</div>
+          </div>
+        </div>
+        <p class="hero-bio">
+          I'm a <strong>Data Science M.S. at Harvard</strong> (graduating May '26) who builds ML systems
+          that survive contact with real-world chaos. My day job involves making models
+          that predict things — rates curves, soybean futures, NBA games, jade prices —
+          basically anything with a number and a deadline.<br /><br />
+          When I'm not staring at loss curves, I'm grinding my golf handicap down from the 90s,
+          smashing shuttlecocks on the badminton court, carving slopes,
+          or finding +EV spots at the poker table. I also build claw agents for fun,
+          because apparently I don't have enough screens in my life.
+        </p>
+        <div class="hero-links">
+          <a class="btn primary" href="Songhan_Resume_0112.pdf" target="_blank">Resume ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/songhanhu/" target="_blank">LinkedIn</a>
+          <a class="btn" href="https://github.com/songhanhu" target="_blank">GitHub</a>
+          <a class="btn" href="mailto:husonghan666@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-value">3.97</div>
+          <div class="stat-label">Harvard GPA</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">#1</div>
+          <div class="stat-label">UCI Class Rank</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">1.64</div>
+          <div class="stat-label">Best Sharpe</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">+EV</div>
+          <div class="stat-label">Poker Style</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-header">About</div>
+        <div class="vibes-grid">
+          <div class="vibe-card">
+            <h3><span class="emoji">🧠</span> The Nerd Part</h3>
+            <p>
+              ML systems, time-series forecasting, quantitative research, multimodal learning.
+              I like when math meets messy data and something useful comes out the other end.
+              Ranked 1st out of 160 in undergrad — not because I'm smart, but because I'm stubborn.
+            </p>
+          </div>
+          <div class="vibe-card">
+            <h3><span class="emoji">🏗️</span> The Builder Part</h3>
+            <p>
+              I don't just train models in notebooks and call it a day. I deploy things —
+              FastAPI backends, Cloud Run microservices, CI/CD pipelines.
+              If it doesn't run in prod, it doesn't count.
+              Currently obsessed with building claw agents that automate everything I'm too lazy to do myself.
+            </p>
+          </div>
+          <div class="vibe-card">
+            <h3><span class="emoji">🏌️</span> The Fun Part</h3>
+            <p>
+              Golf (shooting 90s — I'll get there), badminton (competitive), skiing (send it),
+              and poker (solid, +EV, definitely not just gambling).
+              I approach hobbies the same way I approach models:
+              obsess over the process, track the metrics, blame variance.
+            </p>
+          </div>
+          <div class="vibe-card">
+            <h3><span class="emoji">🎓</span> The Resume Part</h3>
+            <p>
+              Harvard M.S. Data Science (May '26).
+              UCI Mathematics + Quantitative Economics, Magna Cum Laude.
+              Interned at Bank of America (quant strat), Shenwan Hongyuan (quant research), CICC.
+              MIT cross-registered, because one school wasn't enough.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-header">Experience</div>
+        <div class="timeline">
+          <div class="timeline-card">
+            <div class="timeline-year">2025</div>
+            <div>
+              <h3>Bank of America</h3>
+              <div class="role">Quantitative Strategist Intern — Linear Rates</div>
+              <p>
+                Pioneered regression-swap bootstrapping on non-standard SOFR nodes, compressed pricing errors by 6 bps,
+                built an auto-scoring system for daily curve selection that cut fly variance by 20%.
+                Basically taught a computer to pick better yield curves than most humans.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-year">2023</div>
+            <div>
+              <h3>Shenwan Hongyuan Securities</h3>
+              <div class="role">Quantitative Researcher Intern</div>
+              <p>
+                Built sector rotation strategies (Sharpe 1.5), ETF selection models using industry PE ratios,
+                and a Fund-of-Funds strategy with random forest that delivered 30% annualized alpha.
+                My models actually made money — a low bar that surprisingly many don't clear.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-card">
+            <div class="timeline-year">2022</div>
+            <div>
+              <h3>CICC</h3>
+              <div class="role">Part-time Quantitative Analyst</div>
+              <p>
+                Statistical analysis on fund performance, 200+ data visualizations for portfolio allocation.
+                The entry-level grind, but I learned that 80% of quant work is cleaning data and
+                the other 20% is explaining to people why the data is dirty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">Projects</div>
+        <div class="projects-grid">
+          <div class="project">
+            <div class="project-top">
+              <h3>🪨 Non-Standard Jade Pricing AI</h3>
+              <span class="project-tag">in progress</span>
+            </div>
+            <p>
+              Built a multimodal pricing + explanation system for 2M+ jade listings.
+              Uses MoE with Qwen embeddings, image-text RAG for explainable pricing,
+              deployed on Vertex AI with &lt;1s latency. Yes, I taught an AI to appraise jade.
+              No, I can't explain why.
+            </p>
+            <div class="tech">
+              <span>PyTorch</span><span>MoE</span><span>RAG</span><span>Vertex AI</span><span>Cloud Run</span><span>pgvector</span>
+            </div>
+          </div>
+          <div class="project">
+            <div class="project-top">
+              <h3>🫘 Soybean Futures Forecasting</h3>
+              <span class="project-tag">sharpe 1.64</span>
+            </div>
+            <p>
+              Multi-source forecasting pipeline combining daily market signals with weekly CFTC positioning data.
+              Custom TimesNet with composite directional loss, Kelly-scaled position sizing with risk caps.
+              Out-of-sample Sharpe of 1.64. Soybeans have never been this interesting.
+            </p>
+            <div class="tech">
+              <span>TimesNet</span><span>Bayesian Optimization</span><span>Kelly Criterion</span><span>Python</span>
+            </div>
+          </div>
+          <div class="project">
+            <div class="project-top">
+              <h3>🏀 Real-Time NBA Prediction</h3>
+              <span class="project-tag">84.1% accuracy</span>
+            </div>
+            <p>
+              Real-time prediction model integrating player SCAB scores, team synergy, and betting odds signals.
+              Beat the Elo benchmark by 33%. Fully CI/CD'd with automated deployment.
+              My friends still won't let me pick their fantasy teams though.
+            </p>
+            <div class="tech">
+              <span>Scikit-learn</span><span>FastAPI</span><span>CI/CD</span><span>GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">Tech Stack</div>
+        <div class="skills-wrap">
+          <span class="skill">Python</span>
+          <span class="skill">SQL</span>
+          <span class="skill">PyTorch</span>
+          <span class="skill">TensorFlow</span>
+          <span class="skill">Scikit-learn</span>
+          <span class="skill">FastAPI</span>
+          <span class="skill">Pandas</span>
+          <span class="skill">NumPy</span>
+          <span class="skill">GCP</span>
+          <span class="skill">Vertex AI</span>
+          <span class="skill">Cloud Run</span>
+          <span class="skill">Git</span>
+          <span class="skill">Linux</span>
+          <span class="skill">R</span>
+          <span class="skill">MATLAB</span>
+          <span class="skill">Stata</span>
+          <span class="skill">LLMs</span>
+          <span class="skill">RAG</span>
+          <span class="skill">Computer Vision</span>
+          <span class="skill">Time Series</span>
+          <span class="skill">Tableau</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">Let's Talk</div>
+        <p style="color: var(--muted); margin-bottom: 20px; font-size: 1rem;">
+          I'm always down to chat about quant stuff, ML systems, poker strategy,
+          or why your golf swing needs more lag. Reach out.
+        </p>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:husonghan666@gmail.com">
+            <strong>Email</strong>
+            <div class="muted">husonghan666@gmail.com</div>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/songhanhu/" target="_blank">
+            <strong>LinkedIn</strong>
+            <div class="muted">/in/songhanhu</div>
+          </a>
+          <a class="contact-card" href="https://github.com/songhanhu" target="_blank">
+            <strong>GitHub</strong>
+            <div class="muted">songhanhu</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Songhan Hu
+      <div class="footer-note">built with html, css, and mass amounts of caffeine</div>
+    </div>
+  </footer>
+</body>
+</html>
